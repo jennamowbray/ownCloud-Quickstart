@@ -1,5 +1,5 @@
 # Owncloud Quickstart Guide
-The purpose of this guide is to provide administrators with the information that they need to install and configure an Owncloud server and to instruct users on how to connect to the ownCloud server using the desktop client or mobile app.
+The purpose of this guide is to provide administrators with the information that they need to install and configure an ownCloud server and to provide users with the information that they need to connect to the ownCloud server using the desktop client or mobile app.
 
 # Administrators
 
@@ -225,6 +225,7 @@ Accessing your files on your ownCloud server using the Web interface is easy and
 - Easily add files from your device to ownCloud.
 
 - Two-factor authentication.
+
 1.  Log into your ownCloud server from your Android device using a web browser such as Chrome, Firefox, or Dolphin.
 2. The first time you log into a new ownCloud account, you’ll see a screen with a download link to the ownCloud Android App in the Google Play Store.
 3. Open the ownCloud Android app.
