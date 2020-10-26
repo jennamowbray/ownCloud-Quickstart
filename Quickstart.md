@@ -1,5 +1,5 @@
 # Owncloud Quickstart Guide
-The purpose of this guide is to provide administrators with the information that they need to install and configure an Owncloud server and to instruct users on how to connect to the ownCloud server using the desktop or mobile application.
+The purpose of this guide is to provide administrators with the information that they need to install and configure an Owncloud server and to instruct users on how to connect to the ownCloud server using the desktop client or mobile app.
 
 # Administrators
 
@@ -26,13 +26,15 @@ ownCloud can be installed using Docker, using the [official ownCloud Docker imag
 1. Create a new project directory.
 2. Download `docker-compose.yml` from the ownCloud Docker GitHub repository into the new directory.
 3. Create a `.env` configuration file that contains the following required configuration settings:
-| Setting Name     | Description               | Example   |
-|------------------|---------------------------|-----------|
-| `OWNCLOUD_VERSION` | The ownCloud version      | `latest`    |
-| `OWNCLOUD_DOMAIN`  | The ownCloud domain       | `localhost` |
-| `ADMIN_USERNAME`   | The admin username        | `admin`     |
-| `ADMIN_PASSWORD`   | The admin user's password | `admin`     |
-| `HTTP_PORT`        | The HTTP port to bind to  | `8080`      |
+
+| Setting Name     	| Description               	| Example   	|
+|------------------	|---------------------------	|-----------	|
+| OWNCLOUD_VERSION 	| The ownCloud version      	| latest    	|
+| OWNCLOUD_DOMAIN  	| The ownCloud domain       	| localhost 	|
+| ADMIN_USERNAME   	| The admin username        	| admin     	|
+| ADMIN_PASSWORD   	| The admin user's password 	| admin     	|
+| HTTP_PORT        	| The HTTP port to bind to  	| 8080      	|
+
 4. Start the container using your preferred Docker command-line tool.
 5. When the process completes, check that all containers successfully started by running **docker-compose ps**.
 
@@ -74,29 +76,29 @@ If you are running the Apache HTTP server, you can safely install ownCloud in yo
 
 #### Configure Apache
 On Debian, Ubuntu, and their derivatives, Apache installs with a useful configuration, so all you have to do is create an `/etc/apache2/sites-available/owncloud.conf` file with these lines in it, replacing the Directory and other file paths with your own file paths:
-`> Alias /owncloud "/var/www/owncloud/"
+    `Alias /owncloud "/var/www/owncloud/"
 
-> <Directory /var/www/owncloud/>
-	Options +FollowSymlinks
-	AllowOverride All
+    <Directory /var/www/owncloud/>
+      Options +FollowSymlinks
+      AllowOverride All
 
->  <IfModule mod_dav.c>
-  Dav off
- </IfModule>
+     <IfModule mod_dav.c>
+      Dav off
+     </IfModule>
+    </Directory>`
+   
+  Then, create a symlink to /etc/apache2/sites-enabled:
 
- > SetEnv HOME /var/www/owncloud
- SetEnv HTTP_HOME /var/www/owncloud
-
-</Directory>`
+    ln -s /etc/apache2/sites-available/owncloud.conf /etc/apache2/sites-enabled/owncloud.conf
 
 #### Run the Installation Wizard
-**Important**: We **strongly** encourage you to protect the Installation Wizard through some form of password authentication or access control. If the installer is left unprotected when exposed to the public internet, there is the possibility that a malicious actor could finish the installation and block you out — or worse. So please ensure that only you — or someone from your organization — can access the web installer.
+**Important**: We **strongly** encourage you to protect the Installation Wizard through some form of password authentication or access control. If the installer is left unprotected when exposed to the public internet, there is the possibility that a malicious actor could finish the installation and block you out â€” or worse. So please ensure that only you â€” or someone from your organization â€” can access the web installer.
 
 When the ownCloud prerequisites are fulfilled and all ownCloud files are installed, the last step to completing the installation is running the Installation Wizard.
 
 1. Point your web browser to http://localhost/owncloud.
 
-2. Enter the administrator’s username and password.
+2. Enter the administratorâ€™s username and password.
 
 3. Click **Finish Setup**.
 
@@ -124,7 +126,7 @@ Doing this removes the need to run the Graphical Installation Wizard.
 
 ## Create user accounts
 
-1. At the top of the ownCloud **Users** page,  enter the new user’s Login Name and their e-mail address.
+1. At the top of the ownCloud **Users** page,  enter the new userâ€™s Login Name and their e-mail address.
 Login names can contain letters (a-z, A-Z), numbers (0-9), dashes (-), underscores (_), periods (.) and at signs (@).
 
 2. Optionally, assign Groups memberships.
@@ -224,7 +226,7 @@ Accessing your files on your ownCloud server using the Web interface is easy and
 
 - Two-factor authentication.
 1.  Log into your ownCloud server from your Android device using a web browser such as Chrome, Firefox, or Dolphin.
-2. The first time you log into a new ownCloud account, you’ll see a screen with a download link to the ownCloud Android App in the Google Play Store.
+2. The first time you log into a new ownCloud account, youâ€™ll see a screen with a download link to the ownCloud Android App in the Google Play Store.
 3. Open the ownCloud Android app.
 4. On the configuration screen, enter your server URL, login name, password, and then click the **Connect** button. 
 
